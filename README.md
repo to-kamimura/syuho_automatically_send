@@ -7,7 +7,7 @@ Google Apps Scriptと連動して,手動で送るのが面倒な週報の送信�
 https://docs.google.com/spreadsheets/d/1seSMkO-FQ2Fc9FgXI5DTwu6zENtLfihLdxLVlvqfLC0/edit?usp=sharing
 ## トリガー設定
 - 毎週月曜日05時~06時
-  - sendMail.gs:setTriggerSendWeeklyMail()
+  - sendMail.gs : setTriggerSendWeeklyMail()
 - 毎週金曜日18時~19時
-  - remind.gs:remindInputData()
+  - remind.gs : remindInputData()
   
