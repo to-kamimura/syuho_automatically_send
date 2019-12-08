@@ -4,7 +4,7 @@ Google Apps Scriptと連動して,手動で送るのが面倒な週報の送信�
 下記のサンプルスプレッドシートの構造を使い必要情報を入力すると,  
 毎週初営業日の09:00~10:00に週報を自動で送信します.
 ## サンプルスプレッドシート
-https://docs.google.com/spreadsheets/d/1seSMkO-FQ2Fc9FgXI5DTwu6zENtLfihLdxLVlvqfLC0/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1voZXdKUTCv7P3Bhi8iFNHj4G5Q6FtKcOHYYfU2CKm2M/edit?usp=sharing
 ## トリガー設定
 - 毎週月曜日05時~06時
   - sendMail.gs : setTriggerSendWeeklyMail()
