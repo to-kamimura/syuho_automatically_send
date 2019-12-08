@@ -1,22 +1,22 @@
 /**
- * T•ñ‚ÌŒ–¼‚ğ¶¬‚·‚é
- * @return {String} subject Œ–¼
+ * é€±å ±ã®ä»¶åã‚’ç”Ÿæˆã™ã‚‹
+ * @return {String} subject ä»¶å
  */
 function generateSubject() {
-  // ‘OTŠJn“ú•t‚ğæ“¾
+  // å‰é€±é–‹å§‹æ—¥ä»˜ã‚’å–å¾—
   var startDate = new Date();
   if (startDate.getDay() > 1) {
     startDate.setDate(startDate.getDate() - (startDate.getDay() - 1));
   }
   startDate.setDate(startDate.getDate() - 7);
-  // ‘OTÅI“ú‚ğæ“¾
+  // å‰é€±æœ€çµ‚æ—¥ã‚’å–å¾—
   var endDate = new Date(
     startDate.getYear(),
     startDate.getMonth(),
     startDate.getDate() + 4
   );
 
-  // Œ–¼ì¬
+  // ä»¶åä½œæˆ
   var subject =
     Utilities.formatDate(startDate, "Asia/Tokyo", "yyyyMMdd") + "~";
   if (startDate.getMonth() == endDate.getMonth()) {
@@ -29,8 +29,8 @@ function generateSubject() {
 }
 
 /**
- * T•ñ‚Ì–{•¶‚ğ¶¬‚·‚é
- * @return {String} body T•ñ–{•¶‚Ì‘S•¶
+ * é€±å ±ã®æœ¬æ–‡ã‚’ç”Ÿæˆã™ã‚‹
+ * @return {String} body é€±å ±æœ¬æ–‡ã®å…¨æ–‡
  */
 function generateBodyText() {
   var body = new String();
@@ -42,246 +42,246 @@ function generateBodyText() {
 }
 
 /**
- * T•ñ–{•¶‚Ì–`“ª•”‚ğ¶¬‚·‚é
- * @return {String} preface T•ñ–`“ª•”‚Ì•¶š—ñ
+ * é€±å ±æœ¬æ–‡ã®å†’é ­éƒ¨ã‚’ç”Ÿæˆã™ã‚‹
+ * @return {String} preface é€±å ±å†’é ­éƒ¨ã®æ–‡å­—åˆ—
  */
 function generatePrefaceText() {
-  // ‘OTŠJn“ú•t‚ğæ“¾
+  // å‰é€±é–‹å§‹æ—¥ä»˜ã‚’å–å¾—
   var startDate = new Date();
   if (startDate.getDay() > 1) {
     startDate.setDate(startDate.getDate() - (startDate.getDay() - 1));
   }
   startDate.setDate(startDate.getDate() - 7);
-  // ‘OTÅI“ú‚ğæ“¾
+  // å‰é€±æœ€çµ‚æ—¥ã‚’å–å¾—
   var endDate = new Date(startDate.getYear(), startDate.getMonth(), startDate.getDate() + 4);
 
-  // T•ñ–`“ª•”ƒeƒLƒXƒg‚ğì¬
+  // é€±å ±å†’é ­éƒ¨ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
   var preface =
-    "‚¨”æ‚ê—l‚Å‚·B" + String.fromCharCode(10) +
-    Utilities.formatDate(startDate, "Asia/Tokyo", "MŒd“ú") +
-    "‚©‚ç" +
-    Utilities.formatDate(endDate, "Asia/Tokyo", "MŒd“ú") +
-    "‚ÌT•ñ‚ğ‘—•t‚µ‚Ü‚·B" +
+    "ãŠç–²ã‚Œæ§˜ã§ã™ã€‚" + String.fromCharCode(10) +
+    Utilities.formatDate(startDate, "Asia/Tokyo", "Mæœˆdæ—¥") +
+    "ã‹ã‚‰" +
+    Utilities.formatDate(endDate, "Asia/Tokyo", "Mæœˆdæ—¥") +
+    "ã®é€±å ±ã‚’é€ä»˜ã—ã¾ã™ã€‚" +
     String.fromCharCode(10) + String.fromCharCode(10);
 
   return preface;
 }
 
 /**
- * T•ñ–{•¶‚ÌƒƒCƒ“•”•ª‚ğ¶¬‚·‚é
- * @return {String} main T•ñƒƒCƒ“•”‚Ì•¶š—ñ
+ * é€±å ±æœ¬æ–‡ã®ãƒ¡ã‚¤ãƒ³éƒ¨åˆ†ã‚’ç”Ÿæˆã™ã‚‹
+ * @return {String} main é€±å ±ãƒ¡ã‚¤ãƒ³éƒ¨ã®æ–‡å­—åˆ—
  */
 function generateMainPartText() {
   var main =
-    "–{•¶" +
+    "æœ¬æ–‡" +
     String.fromCharCode(10) +
     "=================================" +
     String.fromCharCode(10) +
     String.fromCharCode(10);
 
-  // ‡@–â‘è“_
+  // â‘ å•é¡Œç‚¹
   main += generateProblemPoint();
-  // ‡A‘OT‚Ìì‹Æ“à—e
+  // â‘¡å‰é€±ã®ä½œæ¥­å†…å®¹
   main += generateLastWeeksTask();
-  // ‡B‘ì‹ÆŠÔ
+  // â‘¢ç·ä½œæ¥­æ™‚é–“
   main += generateTotalWorkingTime();
-  // ‡C¡T‚Ìì‹Æ—\’è
+  // â‘£ä»Šé€±ã®ä½œæ¥­äºˆå®š
   main += generateThisWeeksTask();
-  // ‡D‹x‰ÉEŒ¤C—\’è
+  // â‘¤ä¼‘æš‡ãƒ»ç ”ä¿®äºˆå®š
   main += generateVacationAndTraining();
-  // ‡EŠŠ´‚È‚Ç‚»‚Ì‘¼
+  // â‘¥æ‰€æ„Ÿãªã©ãã®ä»–
   main += generateFeelingAndEtc();
 
   return main;
 }
 
 /**
- * ‡@–â‘è“_ ‚ÌƒeƒLƒXƒg‚ğ¶¬‚·‚é
- * @return {String} problemPoint ‡@–â‘è“_
+ * â‘ å•é¡Œç‚¹ ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ç”Ÿæˆã™ã‚‹
+ * @return {String} problemPoint â‘ å•é¡Œç‚¹
  */
 function generateProblemPoint() {
-  // –â‘è“_‚ÌƒZƒ‹‚ÌƒŒƒ“ƒW‚ğæ“¾
-  var range = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg").getRange("C10");
+  // å•é¡Œç‚¹ã®ã‚»ãƒ«ã®ãƒ¬ãƒ³ã‚¸ã‚’å–å¾—
+  var range = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ").getRange("C10");
 
-  // –â‘è“_‚ÌƒeƒLƒXƒg‚ğ¶¬
-  var problemPoint = "‡@–â‘è“_" + String.fromCharCode(10);
+  // å•é¡Œç‚¹ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ç”Ÿæˆ
+  var problemPoint = "â‘ å•é¡Œç‚¹" + String.fromCharCode(10);
   if (range.isBlank()) {
-    problemPoint += "@“Á‚É‚È‚µ" + String.fromCharCode(10) + String.fromCharCode(10);
+    problemPoint += "ã€€ç‰¹ã«ãªã—" + String.fromCharCode(10) + String.fromCharCode(10);
   } else {
     problemPoint +=
-      "@" + range.getValues() + String.fromCharCode(10) + String.fromCharCode(10);
+      "ã€€" + range.getValues() + String.fromCharCode(10) + String.fromCharCode(10);
   }
 
   return problemPoint;
 }
 
 /**
- * ‡A‘OT‚Ìì‹Æ“à—e ‚ÌƒeƒLƒXƒg‚ğì¬
- * @return {String} lastWeeksTask ‡A‘OT‚Ìì‹Æ“à—e
+ * â‘¡å‰é€±ã®ä½œæ¥­å†…å®¹ ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+ * @return {String} lastWeeksTask â‘¡å‰é€±ã®ä½œæ¥­å†…å®¹
  */
 function generateLastWeeksTask() {
-  // ƒV[ƒgƒIƒuƒWƒFƒNƒg‚Ìæ“¾
-  var sheet = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg");
-  // ƒV[ƒg‚Ì—ñC~Dw’è—p‚Ì”z—ñ
+  // ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—
+  var sheet = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ");
+  // ã‚·ãƒ¼ãƒˆã®åˆ—C~DæŒ‡å®šç”¨ã®é…åˆ—
   var columns = "CDEFGH".split("");
 
-  // ‡A‘OT‚Ìì‹Æ“à—eƒeƒLƒXƒg
-  var lastWeeksTask = "‡A‘OT‚Ìì‹Æ“à—e" + String.fromCharCode(10);
+  // â‘¡å‰é€±ã®ä½œæ¥­å†…å®¹ãƒ†ã‚­ã‚¹ãƒˆ
+  var lastWeeksTask = "â‘¡å‰é€±ã®ä½œæ¥­å†…å®¹" + String.fromCharCode(10);
 
-  // ‰^—pŒnƒ^ƒXƒN‚ÌƒeƒLƒXƒg‚ğì¬
-  lastWeeksTask += "@y‰^—pŒnz" + String.fromCharCode(10);
-  // ƒZƒ‹C12~H12 ‚©‚çæT‚Ì‰^—pŒnƒ^ƒXƒN‚ğæ“¾
+  // é‹ç”¨ç³»ã‚¿ã‚¹ã‚¯ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+  lastWeeksTask += "ã€€ã€é‹ç”¨ç³»ã€‘" + String.fromCharCode(10);
+  // ã‚»ãƒ«C12~H12 ã‹ã‚‰å…ˆé€±ã®é‹ç”¨ç³»ã‚¿ã‚¹ã‚¯ã‚’å–å¾—
   for (var i = 0; i < columns.length; i++) {
     var opeLastWeekCell = columns[i] + "12";
     if (!sheet.getRange(opeLastWeekCell).isBlank()) {
-      lastWeeksTask += "@E" + sheet.getRange(opeLastWeekCell).getValues() + String.fromCharCode(10);
+      lastWeeksTask += "ã€€ãƒ»" + sheet.getRange(opeLastWeekCell).getValues() + String.fromCharCode(10);
     }
   }
 
-  // ŠJ”­Œnƒ^ƒXƒN‚ÌƒeƒLƒXƒg‚ğì¬
-  lastWeeksTask += "@yŠJ”­Œnz" + String.fromCharCode(10);
-  // ƒZƒ‹C13:H15 ‚©‚çæT‚ÌŠJ”­Œnƒ^ƒXƒN‚ğæ“¾
+  // é–‹ç™ºç³»ã‚¿ã‚¹ã‚¯ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+  lastWeeksTask += "ã€€ã€é–‹ç™ºç³»ã€‘" + String.fromCharCode(10);
+  // ã‚»ãƒ«C13:H15 ã‹ã‚‰å…ˆé€±ã®é–‹ç™ºç³»ã‚¿ã‚¹ã‚¯ã‚’å–å¾—
   for (var i = 0; i < columns.length; i++) {
     for (var n = 13; n < 16; n++) {
       var devLastWeekCell = columns[i] + n;
       if (!sheet.getRange(devLastWeekCell).isBlank()) {
         if (n == 13) {
-          lastWeeksTask += "@E" + sheet.getRange(devLastWeekCell).getValues() + String.fromCharCode(10);
+          lastWeeksTask += "ã€€ãƒ»" + sheet.getRange(devLastWeekCell).getValues() + String.fromCharCode(10);
         } else if (n == 14) {
-          lastWeeksTask += "@@„¤ " + sheet.getRange(devLastWeekCell).getValues() + "“" + String.fromCharCode(10);
+          lastWeeksTask += "ã€€ã€€â”” " + sheet.getRange(devLastWeekCell).getValues() + "ï¼…" + String.fromCharCode(10);
         } else {
-          lastWeeksTask += "@@@ " + sheet.getRange(devLastWeekCell).getValues() + String.fromCharCode(10);
+          lastWeeksTask += "ã€€ã€€ã€€ " + sheet.getRange(devLastWeekCell).getValues() + String.fromCharCode(10);
         }
       }
     }
   }
 
-  // ––”ö‚Ì‰üs‚ğ’Ç‰Á
+  // æœ«å°¾ã®æ”¹è¡Œã‚’è¿½åŠ 
   lastWeeksTask += String.fromCharCode(10);
 
   return lastWeeksTask;
 }
 
 /**
- * ‡B‘ì‹ÆŠÔ ‚ÌƒeƒLƒXƒg‚ğì¬
- * @return {String} totalTime ‡B‘ì‹ÆŠÔ
+ * â‘¢ç·ä½œæ¥­æ™‚é–“ ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+ * @return {String} totalTime â‘¢ç·ä½œæ¥­æ™‚é–“
  */
 function generateTotalWorkingTime() {
-  // ‘ì‹ÆŠÔ‚ÌƒZƒ‹‚ÌƒŒƒ“ƒW‚ğæ“¾
-  var range = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg").getRange("H2");
+  // ç·ä½œæ¥­æ™‚é–“ã®ã‚»ãƒ«ã®ãƒ¬ãƒ³ã‚¸ã‚’å–å¾—
+  var range = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ").getRange("H2");
 
-  // ‡B‘ì‹ÆŠÔƒeƒLƒXƒg
+  // â‘¢ç·ä½œæ¥­æ™‚é–“ãƒ†ã‚­ã‚¹ãƒˆ
   var totalTime =
-    "‡B‘ì‹ÆŠÔ" + String.fromCharCode(10) +
-    "@" + range.getValues() + "ŠÔ" + String.fromCharCode(10) + String.fromCharCode(10);
+    "â‘¢ç·ä½œæ¥­æ™‚é–“" + String.fromCharCode(10) +
+    "ã€€" + range.getValues() + "æ™‚é–“" + String.fromCharCode(10) + String.fromCharCode(10);
 
   return totalTime;
 }
 
 /**
- * ‡C¡T‚Ìì‹Æ—\’è ‚ÌƒeƒLƒXƒg‚ğì¬
- * @return {String} thisWeeksTask ‡C¡T‚Ìì‹Æ—\’è
+ * â‘£ä»Šé€±ã®ä½œæ¥­äºˆå®š ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+ * @return {String} thisWeeksTask â‘£ä»Šé€±ã®ä½œæ¥­äºˆå®š
  */
 function generateThisWeeksTask() {
-  // ƒV[ƒgƒIƒuƒWƒFƒNƒg‚Ìæ“¾
-  var sheet = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg");
-  // ƒV[ƒg‚Ì—ñC~Dw’è—p‚Ì”z—ñ
+  // ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—
+  var sheet = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ");
+  // ã‚·ãƒ¼ãƒˆã®åˆ—C~DæŒ‡å®šç”¨ã®é…åˆ—
   var columns = "CDEFGH".split("");
 
-  // ‡C¡T‚Ìì‹Æ—\’èƒeƒLƒXƒg
-  var thisWeeksTask = "‡C¡T‚Ìì‹Æ—\’è" + String.fromCharCode(10);
+  // â‘£ä»Šé€±ã®ä½œæ¥­äºˆå®šãƒ†ã‚­ã‚¹ãƒˆ
+  var thisWeeksTask = "â‘£ä»Šé€±ã®ä½œæ¥­äºˆå®š" + String.fromCharCode(10);
 
-  // ‰^—pŒnƒ^ƒXƒN‚ÌƒeƒLƒXƒg‚ğì¬
-  thisWeeksTask += "@y‰^—pŒnz" + String.fromCharCode(10);
-  // ƒZƒ‹C4~H4 ‚©‚ç¡T‚Ì‰^—pŒnƒ^ƒXƒN‚ğæ“¾
+  // é‹ç”¨ç³»ã‚¿ã‚¹ã‚¯ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+  thisWeeksTask += "ã€€ã€é‹ç”¨ç³»ã€‘" + String.fromCharCode(10);
+  // ã‚»ãƒ«C4~H4 ã‹ã‚‰ä»Šé€±ã®é‹ç”¨ç³»ã‚¿ã‚¹ã‚¯ã‚’å–å¾—
   for (var i = 0; i < columns.length; i++) {
     var opeThisWeekCell = columns[i] + "4";
     if (!sheet.getRange(opeThisWeekCell).isBlank()) {
-      thisWeeksTask += "@E" + sheet.getRange(opeThisWeekCell).getValues() + String.fromCharCode(10);
+      thisWeeksTask += "ã€€ãƒ»" + sheet.getRange(opeThisWeekCell).getValues() + String.fromCharCode(10);
     }
   }
 
-  // ŠJ”­Œnƒ^ƒXƒN‚ÌƒeƒLƒXƒg‚ğì¬
-  thisWeeksTask += "@yŠJ”­Œnz" + String.fromCharCode(10);
-  // ƒZƒ‹C5:H7 ‚©‚ç¡T‚ÌŠJ”­Œnƒ^ƒXƒN‚ğæ“¾
+  // é–‹ç™ºç³»ã‚¿ã‚¹ã‚¯ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+  thisWeeksTask += "ã€€ã€é–‹ç™ºç³»ã€‘" + String.fromCharCode(10);
+  // ã‚»ãƒ«C5:H7 ã‹ã‚‰ä»Šé€±ã®é–‹ç™ºç³»ã‚¿ã‚¹ã‚¯ã‚’å–å¾—
   for (var i = 0; i < columns.length; i++) {
     for (var n = 5; n < 8; n++) {
       var devThisWeekCell = columns[i] + n;
       if (!sheet.getRange(devThisWeekCell).isBlank()) {
         if (n == 5) {
-          thisWeeksTask += "@E" + sheet.getRange(devThisWeekCell).getValues() + String.fromCharCode(10);
+          thisWeeksTask += "ã€€ãƒ»" + sheet.getRange(devThisWeekCell).getValues() + String.fromCharCode(10);
         } else if (n == 6) {
-          thisWeeksTask += "@@„¤ " + sheet.getRange(devThisWeekCell).getValues() + "“" + String.fromCharCode(10);
+          thisWeeksTask += "ã€€ã€€â”” " + sheet.getRange(devThisWeekCell).getValues() + "ï¼…" + String.fromCharCode(10);
         } else {
-          thisWeeksTask += "@@@ " + sheet.getRange(devThisWeekCell).getValues() + String.fromCharCode(10);
+          thisWeeksTask += "ã€€ã€€ã€€ " + sheet.getRange(devThisWeekCell).getValues() + String.fromCharCode(10);
         }
       }
     }
   }
 
-  // ––”ö‚Ì‰üs‚ğ’Ç‰Á
+  // æœ«å°¾ã®æ”¹è¡Œã‚’è¿½åŠ 
   thisWeeksTask += String.fromCharCode(10);
 
   return thisWeeksTask;
 }
 
 /**
- * ‡D‹x‰ÉEŒ¤C—\’è ‚ÌƒeƒLƒXƒg‚ğì¬
- * @return {String} vacation ‡D‹x‰ÉEŒ¤C—\’è
+ * â‘¤ä¼‘æš‡ãƒ»ç ”ä¿®äºˆå®š ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+ * @return {String} vacation â‘¤ä¼‘æš‡ãƒ»ç ”ä¿®äºˆå®š
  */
 function generateVacationAndTraining() {
-  // ƒV[ƒgƒIƒuƒWƒFƒNƒg‚Ìæ“¾
-  var sheet = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg");
-  // ‹x‰ÉEŒ¤C—\’è‚ÌƒZƒ‹‚Ì’l‚ğæ“¾
+  // ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—
+  var sheet = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ");
+  // ä¼‘æš‡ãƒ»ç ”ä¿®äºˆå®šã®ã‚»ãƒ«ã®å€¤ã‚’å–å¾—
   var vacation = new String();
-  vacation += "‡D‹x‰ÉEŒ¤C—\’è" + String.fromCharCode(10);
+  vacation += "â‘¤ä¼‘æš‡ãƒ»ç ”ä¿®äºˆå®š" + String.fromCharCode(10);
   if (sheet.getRange("C8").isBlank()) {
-    vacation += "@“Á‚É‚È‚µ" + String.fromCharCode(10);
+    vacation += "ã€€ç‰¹ã«ãªã—" + String.fromCharCode(10);
   } else {
     var columns = "CDEFGH".split("");
     for (var i = 0; i < columns.length; i++) {
       var vacationCell = columns[i] + "8";
       if (!sheet.getRange(vacationCell).isBlank()) {
         vacation +=
-          "@" +
+          "ã€€" +
           sheet.getRange(vacationCell).getValues() +
           String.fromCharCode(10);
       }
     }
   }
 
-  // ––”ö‚Ì‰üs‚ğ’Ç‰Á
+  // æœ«å°¾ã®æ”¹è¡Œã‚’è¿½åŠ 
   vacation += String.fromCharCode(10);
 
   return vacation;
 }
 
 /**
- * ‡EŠŠ´‚È‚Ç‚»‚Ì‘¼ ‚ÌƒeƒLƒXƒg‚ğì¬
- * @return {String} feeling ‡EŠŠ´‚È‚Ç‚»‚Ì‘¼
+ * â‘¥æ‰€æ„Ÿãªã©ãã®ä»– ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ä½œæˆ
+ * @return {String} feeling â‘¥æ‰€æ„Ÿãªã©ãã®ä»–
  */
 function generateFeelingAndEtc() {
-  // ŠŠ´‚È‚Ç‚»‚Ì‘¼‚ÌƒZƒ‹‚ÌƒŒƒ“ƒW‚ğæ“¾
-  var range = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg").getRange("C9");
-  // ŠŠ´‚È‚Ç‚»‚Ì‘¼‚ÌƒZƒ‹‚Ì’l‚ğæ“¾
+  // æ‰€æ„Ÿãªã©ãã®ä»–ã®ã‚»ãƒ«ã®ãƒ¬ãƒ³ã‚¸ã‚’å–å¾—
+  var range = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ").getRange("C9");
+  // æ‰€æ„Ÿãªã©ãã®ä»–ã®ã‚»ãƒ«ã®å€¤ã‚’å–å¾—
   var feeling = new String();
-  feeling += "‡EŠŠ´‚È‚Ç‚»‚Ì‘¼" + String.fromCharCode(10);
+  feeling += "â‘¥æ‰€æ„Ÿãªã©ãã®ä»–" + String.fromCharCode(10);
   if (range.isBlank()) {
-    feeling += "@“Á‚É‚È‚µ" + String.fromCharCode(10);
+    feeling += "ã€€ç‰¹ã«ãªã—" + String.fromCharCode(10);
   } else {
     feeling +=
-      "@" + range.getValues() + String.fromCharCode(10);
+      "ã€€" + range.getValues() + String.fromCharCode(10);
   }
 
-  // ––”ö‚Ì‰üs‚ğ’Ç‰Á
+  // æœ«å°¾ã®æ”¹è¡Œã‚’è¿½åŠ 
   feeling += String.fromCharCode(10);
 
   return feeling;
 }
 
 /**
- * –¼‚ğ¶¬‚·‚é
- * @return {String} signature –¼‚Ì•¶š—ñ
+ * ç½²åã‚’ç”Ÿæˆã™ã‚‹
+ * @return {String} signature ç½²åã®æ–‡å­—åˆ—
  */
 function generateSignature() {
   var signature = "";

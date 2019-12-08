@@ -1,12 +1,12 @@
 /**
- * ƒAƒNƒeƒBƒu‚ÈƒXƒvƒŒƒbƒhƒV[ƒg‚©‚çˆø”‚ÌƒV[ƒg–¼‚ÌƒV[ƒgƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é
- * @param  {String} str ƒV[ƒg–¼
- * @return {Sheet} sheet ƒV[ƒgƒIƒuƒWƒFƒNƒg
+ * ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆã‹ã‚‰å¼•æ•°ã®ã‚·ãƒ¼ãƒˆåã®ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹
+ * @param  {String} str ã‚·ãƒ¼ãƒˆå
+ * @return {Sheet} sheet ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  */
 function getSheetByName(str) {
-  // ƒAƒNƒeƒBƒu‚ÈƒXƒvƒŒƒbƒhƒV[ƒg‚ğæ“¾
+  // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆã‚’å–å¾—
   var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
-  // ƒV[ƒg–¼str‚ÌƒV[ƒgƒIƒuƒWƒFƒNƒg‚ğæ“¾
+  // ã‚·ãƒ¼ãƒˆåstrã®ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—
   var sheet = spreadsheet.getSheetByName(str);
 
   return sheet;

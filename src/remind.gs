@@ -1,32 +1,32 @@
 /**
- * ƒf[ƒ^“ü—ÍƒŠƒ}ƒCƒ“ƒh‚ğSlack‚É‘—M‚·‚é
- * Às•û–@ ƒgƒŠƒK[
- * Às“ú –ˆT‹à—j“ú 18~19
+ * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ãƒªãƒã‚¤ãƒ³ãƒ‰ã‚’Slackã«é€ä¿¡ã™ã‚‹
+ * å®Ÿè¡Œæ–¹æ³• ãƒˆãƒªã‚¬ãƒ¼
+ * å®Ÿè¡Œæ—¥æ™‚ æ¯é€±é‡‘æ›œæ—¥ 18æ™‚~19æ™‚
  */
 function remindInputData() {
   var channel = "";
-  var text = "—ˆT‚ÌT•ñƒf[ƒ^‚ğ“ü—Í‚µ‚Ü‚µ‚½‚©H";
-  var username = "T•ñƒf[ƒ^“ü—ÍƒŠƒ}ƒCƒ“ƒh";
+  var text = "æ¥é€±ã®é€±å ±ãƒ‡ãƒ¼ã‚¿ã‚’å…¥åŠ›ã—ã¾ã—ãŸã‹ï¼Ÿ";
+  var username = "é€±å ±ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ãƒªãƒã‚¤ãƒ³ãƒ‰";
   var icon_emoji = ":flushed:";
 
   postSlackMessage(channel, text, username, icon_emoji);
 }
 
 /**
- * Slack‚É‘—M‚·‚é
- * @param {String} channel Slackƒ`ƒƒƒ“ƒlƒ‹
- * @param {String} text ‘—MƒeƒLƒXƒg
- * @param {String} username ‘—Mƒ†[ƒU[–¼
- * @param {String} icon_emoji SlackƒAƒCƒRƒ“
+ * Slackã«é€ä¿¡ã™ã‚‹
+ * @param {String} channel Slackãƒãƒ£ãƒ³ãƒãƒ«
+ * @param {String} text é€ä¿¡ãƒ†ã‚­ã‚¹ãƒˆ
+ * @param {String} username é€ä¿¡ãƒ¦ãƒ¼ã‚¶ãƒ¼å
+ * @param {String} icon_emoji Slackã‚¢ã‚¤ã‚³ãƒ³
  */
 function postSlackMessage(channel, text, username, icon_emoji) {
   // Slack API
   var url = "https://slack.com/api/chat.postMessage";
 
-  // SlackƒAƒJƒEƒ“ƒg‚Åƒg[ƒNƒ“æ“¾
+  // Slackã‚¢ã‚«ã‚¦ãƒ³ãƒˆã§ãƒˆãƒ¼ã‚¯ãƒ³å–å¾—
   var token = "";
 
-  // ƒpƒ‰ƒ[ƒ^
+  // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
   var method = "post";
   var payload = {
     token: token,
@@ -40,7 +40,7 @@ function postSlackMessage(channel, text, username, icon_emoji) {
     payload: payload
   };
 
-  // Slack‚Å‘—M‚·‚é
+  // Slackã§é€ä¿¡ã™ã‚‹
   try {
     var response = UrlFetchApp.fetch(url, params);
     return true;

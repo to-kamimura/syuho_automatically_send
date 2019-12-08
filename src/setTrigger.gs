@@ -1,17 +1,17 @@
 /**
- * T•ñ©“®‘—M‚ğÀs‚·‚éˆ×‚ÌƒgƒŠƒK[‚ğƒZƒbƒg‚·‚é
- * Às•û–@ ƒgƒŠƒK[
- * Às“ú –ˆTŒ—j“ú 05~06
+ * é€±å ±è‡ªå‹•é€ä¿¡ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®ãƒˆãƒªã‚¬ãƒ¼ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+ * å®Ÿè¡Œæ–¹æ³• ãƒˆãƒªã‚¬ãƒ¼
+ * å®Ÿè¡Œæ—¥æ™‚ æ¯é€±æœˆæ›œæ—¥ 05æ™‚~06æ™‚
  */
 function setTriggerSendWeeklyMail() {
-  // ƒgƒŠƒK[‚Ìİ’èî•ñ‚ğì¬
+  // ãƒˆãƒªã‚¬ãƒ¼ã®è¨­å®šæƒ…å ±ã‚’ä½œæˆ
   var fName = "sendWeeklyMail";
   var triggerDate = new Date();
   var randomMinutes = Math.floor(Math.random() * 60);
   triggerDate.setHours(9);
   triggerDate.setMinutes(randomMinutes);
 
-  // “–“ú‚ª‰c‹Æ“ú‚Ìê‡‚Ì‚İƒgƒŠƒK[‚ğƒZƒbƒg‚µA“y“új‚Ìê‡‚Í—‚“ú‚ÅÄ“xƒgƒŠƒK[ƒZƒbƒg‚ğs‚·‚é
+  // å½“æ—¥ãŒå–¶æ¥­æ—¥ã®å ´åˆã®ã¿ãƒˆãƒªã‚¬ãƒ¼ã‚’ã‚»ãƒƒãƒˆã—ã€åœŸæ—¥ç¥ã®å ´åˆã¯ç¿Œæ—¥ã§å†åº¦ãƒˆãƒªã‚¬ãƒ¼ã‚»ãƒƒãƒˆã‚’è©¦è¡Œã™ã‚‹
   for (var i = 0; i < 5; i++) {
     if (isBusinessDay(triggerDate)) {
       setTrigger(fName, triggerDate);
@@ -22,9 +22,9 @@ function setTriggerSendWeeklyMail() {
 }
 
 /**
- * ƒgƒŠƒK[‚ğƒZƒbƒg‚·‚é
- * @param  {String} fName ƒZƒbƒg‘ÎÛ‚ÌŠÖ”–¼
- * @param  {Date} date ƒZƒbƒg‚·‚é“ú
+ * ãƒˆãƒªã‚¬ãƒ¼ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+ * @param  {String} fName ã‚»ãƒƒãƒˆå¯¾è±¡ã®é–¢æ•°å
+ * @param  {Date} date ã‚»ãƒƒãƒˆã™ã‚‹æ—¥æ™‚
  */
 function setTrigger(fName, date) {
   ScriptApp
@@ -35,8 +35,8 @@ function setTrigger(fName, date) {
 }
 
 /**
- * ˆø”‚Åw’è‚³‚ê‚½ŠÖ”‚ÌƒgƒŠƒK[‚ğíœ‚·‚é
- * @param  {String} fName íœ‘ÎÛ‚ÌŠÖ”–¼
+ * å¼•æ•°ã§æŒ‡å®šã•ã‚ŒãŸé–¢æ•°ã®ãƒˆãƒªã‚¬ãƒ¼ã‚’å‰Šé™¤ã™ã‚‹
+ * @param  {String} fName å‰Šé™¤å¯¾è±¡ã®é–¢æ•°å
  */
 function deleteTrigger(fName) {
   var triggers = ScriptApp.getProjectTriggers();
@@ -48,21 +48,21 @@ function deleteTrigger(fName) {
 }
 
 /**
- * ‰c‹Æ“ú‚©‚Ç‚¤‚©”»’è‚·‚é
- * @param {Date} date ”»’è‘ÎÛ‚Ì“ú
- * @return {boolean} ‰c‹Æ“ú‚Ítrue, “y“új‚Ífalse
+ * å–¶æ¥­æ—¥ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹
+ * @param {Date} date åˆ¤å®šå¯¾è±¡ã®æ—¥æ™‚
+ * @return {boolean} å–¶æ¥­æ—¥ã¯true, åœŸæ—¥ç¥ã¯false
  */
 function isBusinessDay(date) {
     var isBusinessDay = true;
-    // “ú—j“ú(0)‚Ü‚½‚Í“y—j“ú(6)‚Ífalse
+    // æ—¥æ›œæ—¥(0)ã¾ãŸã¯åœŸæ›œæ—¥(6)ã¯false
     if (date.getDay() == 0 || date.getDay() == 6) {
         isBusinessDay = false;
     }
-    // GoogleƒJƒŒƒ“ƒ_[‚Ìu“ú–{‚Ìj“úv‚ÉŠY“–‚·‚é“ú‚Ífalse
+    // Googleã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã®ã€Œæ—¥æœ¬ã®ç¥æ—¥ã€ã«è©²å½“ã™ã‚‹æ—¥ã¯false
     var calJa = CalendarApp.getCalendarById("ja.japanese#holiday@group.v.calendar.google.com");
     if (calJa.getEventsForDay(date).length > 0) {
         isBusinessDay = false;
     }
-    // ã‹LˆÈŠO‚Ì“ú‚Í‰c‹Æ“ú‚Æ‚µ‚Ätrue
+    // ä¸Šè¨˜ä»¥å¤–ã®æ—¥ã¯å–¶æ¥­æ—¥ã¨ã—ã¦true
     return isBusinessDay;
 }

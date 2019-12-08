@@ -1,5 +1,5 @@
 /**
- * ì‹ÆŠÔ•\‚ğXV‚·‚é
+ * ä½œæ¥­æ™‚é–“è¡¨ã‚’æ›´æ–°ã™ã‚‹
  */
 function updateTimeTable() {
   generateDates();
@@ -7,17 +7,17 @@ function updateTimeTable() {
 }
 
 /**
- * ì‹ÆŠÔ“ü—Í•\—p‚É¡T‚Ì“ú•t‚ğæ“¾‚µAƒZƒ‹C1~G1‚É“ü—Í‚·‚é
+ * ä½œæ¥­æ™‚é–“å…¥åŠ›è¡¨ç”¨ã«ä»Šé€±ã®æ—¥ä»˜ã‚’å–å¾—ã—ã€ã‚»ãƒ«C1~G1ã«å…¥åŠ›ã™ã‚‹
  */
 function generateDates() {
-  // ƒV[ƒgƒIƒuƒWƒFƒNƒg‚Ìæ“¾
-  var sheet = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg");
-  // ƒV[ƒg‚Ì—ñC~Dw’è—p‚Ì”z—ñ
+  // ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—
+  var sheet = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ");
+  // ã‚·ãƒ¼ãƒˆã®åˆ—C~DæŒ‡å®šç”¨ã®é…åˆ—
   var columns = "CDEFG".split("");
-  // —j“ú”z—ñ
-  var weekDayAry = "“úŒ‰Î…–Ø‹à“y".split("");
+  // æ›œæ—¥é…åˆ—
+  var weekDayAry = "æ—¥æœˆç«æ°´æœ¨é‡‘åœŸ".split("");
 
-  // T‰‚ÌŒ—j“ú‚©‚ç‹à—j“ú‚Ü‚Å“ú•t‚ğ‡‚ÉƒZƒ‹C1~G1‚É“ü—Í‚·‚é
+  // é€±åˆã®æœˆæ›œæ—¥ã‹ã‚‰é‡‘æ›œæ—¥ã¾ã§æ—¥ä»˜ã‚’é †ã«ã‚»ãƒ«C1~G1ã«å…¥åŠ›ã™ã‚‹
   var date = new Date();
   if (date.getDay() > 1) {
     date.setDate(date.getDate() - (date.getDay() - 1));
@@ -26,21 +26,21 @@ function generateDates() {
     var range = columns[i] + "1";
     sheet
       .getRange(range)
-      .setValue(Utilities.formatDate(date, "Asia/Tokyo", "MŒd“ú") + "i" + weekDayAry[date.getDay()] + "j");
+      .setValue(Utilities.formatDate(date, "Asia/Tokyo", "Mæœˆdæ—¥") + "ï¼ˆ" + weekDayAry[date.getDay()] + "ï¼‰");
     date.setDate(date.getDate() + 1);
   }
 }
 
 /**
- * ‘OT‚Ìì‹ÆŠÔ‚ğíœ‚·‚é
+ * å‰é€±ã®ä½œæ¥­æ™‚é–“ã‚’å‰Šé™¤ã™ã‚‹
  */
 function deleteTime() {
-  // ƒV[ƒgƒIƒuƒWƒFƒNƒg‚Ìæ“¾
-  var sheet = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg");
-  // ƒV[ƒg‚Ì—ñC~Dw’è—p‚Ì”z—ñ
+  // ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—
+  var sheet = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ");
+  // ã‚·ãƒ¼ãƒˆã®åˆ—C~DæŒ‡å®šç”¨ã®é…åˆ—
   var columns = "CDEFG".split("");
 
-  // ì‹ÆŠÔƒZƒ‹C2~G2‚Ì’l‚ğíœ
+  // ä½œæ¥­æ™‚é–“ã‚»ãƒ«C2~G2ã®å€¤ã‚’å‰Šé™¤
   for (var i = 0; i < 5; i++) {
     var range = columns[i] + "2";
     sheet
@@ -50,12 +50,12 @@ function deleteTime() {
 }
 
 /**
- * u¡T‚Ìƒ^ƒXƒNv‚Ì’l‚ğuæT‚Ìƒ^ƒXƒNv‚Ì‘Î‰‚·‚éƒZƒ‹‚ÉƒRƒs[‚·‚é
+ * ã€Œä»Šé€±ã®ã‚¿ã‚¹ã‚¯ã€ã®å€¤ã‚’ã€Œå…ˆé€±ã®ã‚¿ã‚¹ã‚¯ã€ã®å¯¾å¿œã™ã‚‹ã‚»ãƒ«ã«ã‚³ãƒ”ãƒ¼ã™ã‚‹
  */
 function backupTaskCells() {
-  // ƒV[ƒgƒIƒuƒWƒFƒNƒg‚Ìæ“¾
-  var sheet = getSheetByName("T•ñ¶¬—pƒf[ƒ^“ü—ÍƒV[ƒg");
-  // u¡T‚Ìƒ^ƒXƒNv‚Ì’l‚ğuæT‚Ìƒ^ƒXƒNv‚ÌƒZƒ‹‚ÖƒRƒs[‚·‚é
+  // ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—
+  var sheet = getSheetByName("é€±å ±ç”Ÿæˆç”¨ãƒ‡ãƒ¼ã‚¿å…¥åŠ›ã‚·ãƒ¼ãƒˆ");
+  // ã€Œä»Šé€±ã®ã‚¿ã‚¹ã‚¯ã€ã®å€¤ã‚’ã€Œå…ˆé€±ã®ã‚¿ã‚¹ã‚¯ã€ã®ã‚»ãƒ«ã¸ã‚³ãƒ”ãƒ¼ã™ã‚‹
   var columns = "CDEFGH".split("");
   for (var i = 0; i < columns.length; i++) {
     for (var n = 4; n < 8; n++) {
@@ -64,7 +64,7 @@ function backupTaskCells() {
       sheet
         .getRange(lastWeekCell)
         .setValue(sheet.getRange(thisWeekCell).getValues());
-      // ƒoƒbƒNƒAƒbƒv‚ªŠ®—¹‚µ‚½‚çAu¡T‚Ìƒ^ƒXƒN(ŠJ”­)v“à‚ÌuÚ×v‚Ì’l‚ğíœ‚·‚é
+      // ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãŒå®Œäº†ã—ãŸã‚‰ã€ã€Œä»Šé€±ã®ã‚¿ã‚¹ã‚¯(é–‹ç™º)ã€å†…ã®ã€Œè©³ç´°ã€ã®å€¤ã‚’å‰Šé™¤ã™ã‚‹
       if (n == 7) {
         sheet.getRange(thisWeekCell).clearContent();
       }

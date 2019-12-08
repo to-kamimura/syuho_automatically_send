@@ -1,10 +1,10 @@
 /**
- * T•ñƒ[ƒ‹‚ğ‘—M‚·‚é
- * Às•û–@ ƒgƒŠƒK[
- * Às“ú –ˆTŒ—j“ú 9~10
+ * é€±å ±ãƒ¡ãƒ¼ãƒ«ã‚’é€ä¿¡ã™ã‚‹
+ * å®Ÿè¡Œæ–¹æ³• ãƒˆãƒªã‚¬ãƒ¼
+ * å®Ÿè¡Œæ—¥æ™‚ æ¯é€±æœˆæ›œæ—¥ 9æ™‚~10æ™‚
  */
 function sendWeeklyMail() {
-  // ƒ[ƒ‹—p•Ï”İ’è
+  // ãƒ¡ãƒ¼ãƒ«ç”¨å¤‰æ•°è¨­å®š
   var mailTo = "";
   var subject = generateSubject();
   var mailBody = generateBodyText();
@@ -15,13 +15,13 @@ function sendWeeklyMail() {
     name: ""
   };
 
-  // ƒ[ƒ‹‚ğ‘—M
+  // ãƒ¡ãƒ¼ãƒ«ã‚’é€ä¿¡
   GmailApp.sendEmail(mailTo, subject, mailBody, sendAllay);
 
-  // u¡T‚Ìƒ^ƒXƒNv‚ğuæT‚Ìƒ^ƒXƒNv‚ÉˆÚ‚·
+  // ã€Œä»Šé€±ã®ã‚¿ã‚¹ã‚¯ã€ã‚’ã€Œå…ˆé€±ã®ã‚¿ã‚¹ã‚¯ã€ã«ç§»ã™
   backupTaskCells();
-  // ì‹ÆŠÔ•\‚ğXV
+  // ä½œæ¥­æ™‚é–“è¡¨ã‚’æ›´æ–°
   updateTimeTable();
-  // ƒ[ƒ‹‘—M—p‚ÌƒgƒŠƒK[‚ğíœ‚·‚é
+  // ãƒ¡ãƒ¼ãƒ«é€ä¿¡ç”¨ã®ãƒˆãƒªã‚¬ãƒ¼ã‚’å‰Šé™¤ã™ã‚‹
   deleteTrigger("sendWeeklyMail");
 }
