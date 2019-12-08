@@ -10,4 +10,5 @@ https://docs.google.com/spreadsheets/d/1voZXdKUTCv7P3Bhi8iFNHj4G5Q6FtKcOHYYfU2CK
   - sendMail.gs : setTriggerSendWeeklyMail()
 - 毎週金曜日18時~19時
   - remind.gs : remindInputData()
-  
+## 開発環境
+google/claspを利用し,ローカル環境にて開発.
