@@ -8,7 +8,7 @@ Google Apps Scriptと連動して,組織ではよくある「週報」の送信�
 GASプログラムの実行はトリガーによって行い,  
 下記の「トリガー設定」項目の周期で該当の関数を実行します.  
   
-また,当GASプロジェクトは「開発環境」項目の通りローカル環境での開発に対応しています.
+また,当GASプロジェクトは「開発環境」項目に記載の通りローカル環境での開発に対応しています.
 ## サンプルスプレッドシート
 https://docs.google.com/spreadsheets/d/1voZXdKUTCv7P3Bhi8iFNHj4G5Q6FtKcOHYYfU2CKm2M/edit?usp=sharing
 ## トリガー設定
@@ -18,5 +18,5 @@ https://docs.google.com/spreadsheets/d/1voZXdKUTCv7P3Bhi8iFNHj4G5Q6FtKcOHYYfU2CK
   - remind.gs : remindInputData()
 ## 開発環境
 google/claspを利用し,ローカル環境での開発に対応しています.  
-詳しくは下記のgoogle/claspプロジェクトを御覧ください.  
+google/claspに関する詳細は,下記のプロジェクトをご参照ください.  
 https://github.com/google/clasp
